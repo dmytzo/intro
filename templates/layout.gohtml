@@ -1,0 +1,80 @@
+{{ define "layout" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dmytzo</title>
+        <style>
+            html {
+                font-family: monospace;
+            }
+
+            body {
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            header {
+                text-align: center;
+            }
+
+            header > img {
+                width: 150px;
+            }
+
+            nav > ul > li {
+                display: inline-block;
+                padding: 10px 20px;
+            }
+
+            nav > ul > li:hover {
+                color: grey;
+            }
+
+            nav > ul > li > a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            nav > ul {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            main {
+                border: solid 1px;
+                height: 100vh;
+            }
+
+            section {
+                margin: 15px;
+            }
+        </style>
+    </head>
+    <body>
+    <header>
+        <img src="static/images/h.png" alt="logo">
+        <h3>dmytzo's web page</h3>
+        <nav>
+            <ul>
+                <li {{if eq .page "index" }} style="border-bottom: solid black 1px" {{end}}>
+                    <a href="/">about</a>
+                </li>
+                <li{{if eq .page "thoughts"}} style="border-bottom: solid black 1px" {{end}}>
+                    <a href="/thoughts">thoughts</a>
+                </li>
+                <li{{if eq .page "blog"}} style="border-bottom: solid black 1px" {{end}}>
+                    <a href="/blog">blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {{ template "body" . }}
+    </main>
+    </body>
+    </html>
+
+{{ end }}
